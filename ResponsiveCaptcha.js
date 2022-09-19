@@ -1,25 +1,26 @@
-function CaptchaResponsivo() {
-    document.getElementById("hcap").style.display = "none"
-    formWidth = document.getElementsByClassName("h-captcha")[0].parentElement.clientWidth
+function ResponsiveCaptcha() {
+    ClassName = "h-captcha"
     captchaWidth = 303
     catpchaHeight = 78
+
+    cap = document.getElementsByClassName(ClassName)[0]
+    cap.style.display = "none"
+    formWidth = cap.parentElement.clientWidth
 
     scale = formWidth / captchaWidth
     marginWidth = (captchaWidth - formWidth) / 2
     marginHeight = ((catpchaHeight * scale) - catpchaHeight) / 2
 
+    cap.style.transform = "scale(" + scale + ")"
+    cap.style.marginLeft = "-" + marginWidth + "px"
+    cap.style.marginRight = "-" + marginWidth + "px"
+    cap.style.marginTop = marginHeight + "px"
+    cap.style.marginBottom = marginHeight + "px"
 
-    document.getElementById("hcap").style.transform = "scale(" + scale + ")"
-    document.getElementById("hcap").style.marginLeft = "-" + marginWidth + "px"
-    document.getElementById("hcap").style.marginRight = "-" + marginWidth + "px"
-    document.getElementById("hcap").style.marginTop = marginHeight + "px"
-    document.getElementById("hcap").style.marginBottom = marginHeight + "px"
-
-
-    document.getElementById("hcap").style.justifyContent = "center"
-    document.getElementById("hcap").style.display = "flex"
+    cap.style.justifyContent = "center"
+    cap.style.display = "flex"
 }
 
 
-document.addEventListener('DOMContentLoaded', CaptchaResponsivo)
-window.addEventListener("resize", CaptchaResponsivo)
+document.addEventListener('DOMContentLoaded', ResponsiveCaptcha)
+window.addEventListener("resize", ResponsiveCaptcha)
